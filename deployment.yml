@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kart-app
+  labels:
+    app: kart-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kart-app
+  template:
+    metadata:
+      labels:
+        app: kart-app
+    spec:
+      containers:
+      - name: kart-app
+        image: nandlalkamat/ekart:latest
+        ports:
+        - containerPort: 80       
